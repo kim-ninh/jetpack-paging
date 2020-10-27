@@ -1,0 +1,24 @@
+// GET https://www.reddit.com/r/subreddit/hot.json?limit=1
+
+{
+  "kind": "Listing",
+  "data": {
+    // ...
+    "before": "axvsdf",
+    "after": "jerjejr",
+    "children": [
+      {
+        // ...
+
+        "data": {
+          "name": "lorem ipsum",
+          "title": "lorem ipsum",
+          "score": 42,
+          "author": "",
+
+          // ...
+        }
+      }
+    ]
+  }
+}

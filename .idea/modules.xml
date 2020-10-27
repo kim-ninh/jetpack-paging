@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagingWithNetworkSample.iml" filepath="$PROJECT_DIR$/.idea/modules/PagingWithNetworkSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PagingWithNetworkSample.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PagingWithNetworkSample.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/benchmark/PagingWithNetworkSample.benchmark.iml" filepath="$PROJECT_DIR$/.idea/modules/benchmark/PagingWithNetworkSample.benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/PagingWithNetworkSample.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/PagingWithNetworkSample.lib.iml" />
+    </modules>
+  </component>
+</project>
