@@ -31,6 +31,12 @@ interface RedditPostDao {
     @Query("SELECT * FROM posts WHERE subreddit = :subreddit ORDER BY indexInResponse ASC")
     fun postsBySubreddit(subreddit : String) : DataSource.Factory<Int, RedditPost>
 
+    @Query("SELECT * FROM posts WHERE subreddit = :subreddit ORDER BY name ASC LIMIT :total")
+    fun postsBySubreddit(subreddit: String, total: Int): List<RedditPost>
+
+    @Query("SELECT * FROM posts WHERE subreddit = :subreddit AND name > :lastName ORDER BY name ASC LIMIT :total")
+    fun postsBySubreddit(subreddit: String, total: Int, lastName: String): List<RedditPost>
+
     @Query("DELETE FROM posts WHERE subreddit = :subreddit")
     fun deleteBySubreddit(subreddit: String)
 

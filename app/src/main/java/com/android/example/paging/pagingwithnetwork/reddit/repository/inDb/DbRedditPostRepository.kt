@@ -20,6 +20,7 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.switchMap
+import androidx.paging.LivePagedListBuilder
 import androidx.paging.toLiveData
 import com.android.example.paging.pagingwithnetwork.reddit.api.RedditApi
 import com.android.example.paging.pagingwithnetwork.reddit.db.RedditDb
@@ -122,8 +123,12 @@ class DbRedditPostRepository(
                 pageSize = pageSize,
                 boundaryCallback = boundaryCallback)
 
+        val livePagedList1 = DbSubRedditDataSourceFactory(db, subReddit).toLiveData(
+                pageSize = pageSize,
+                boundaryCallback = boundaryCallback)
+
         return Listing(
-                pagedList = livePagedList,
+                pagedList = livePagedList1,
                 networkState = boundaryCallback.networkState,
                 retry = {
                     boundaryCallback.helper.retryAllFailed()
