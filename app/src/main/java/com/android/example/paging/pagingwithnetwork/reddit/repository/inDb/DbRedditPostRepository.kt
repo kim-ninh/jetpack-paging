@@ -52,11 +52,13 @@ class DbRedditPostRepository(
     private fun insertResultIntoDb(subredditName: String, body: RedditApi.ListingResponse?) {
         body!!.data.children.let { posts ->
             db.runInTransaction {
-                val start = db.posts().getNextIndexInSubreddit(subredditName)
-                val items = posts.mapIndexed { index, child ->
-                    child.data.indexInResponse = start + index
-                    child.data
-                }
+//                val start = db.posts().getNextIndexInSubreddit(subredditName)
+//                val items = posts.mapIndexed { index, child ->
+//                    child.data.indexInResponse = start + index
+//                    child.data
+//                }
+//                db.posts().insert(items)
+                val items = posts.map { it.data }
                 db.posts().insert(items)
             }
         }
@@ -119,9 +121,9 @@ class DbRedditPostRepository(
         }
 
         // We use toLiveData Kotlin extension function here, you could also use LivePagedListBuilder
-        val livePagedList = db.posts().postsBySubreddit(subReddit).toLiveData(
-                pageSize = pageSize,
-                boundaryCallback = boundaryCallback)
+//        val livePagedList = db.posts().postsBySubreddit(subReddit).toLiveData(
+//                pageSize = pageSize,
+//                boundaryCallback = boundaryCallback)
 
         val livePagedList1 = DbSubRedditDataSourceFactory(db, subReddit).toLiveData(
                 pageSize = pageSize,
